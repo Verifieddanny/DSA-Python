@@ -40,17 +40,10 @@ class LinkedList:
             runner = current
             while(runner and runner.next):
                 if(current.value == runner.next.value):
-                    temp = runner.next
-                    runner.next = temp.next
-                    temp.next = None
+                    runner.next = runner.next.next
                     self.length -= 1
-                runner = runner.next
-                
-            if (runner and current.value == runner.value):
-                temp = runner
-                current.next = temp.next
-                temp.next = None
-                self.length -= 1
+                else:
+                    runner = runner.next
             
             current = current.next
         
